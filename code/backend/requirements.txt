@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pypdf2
+python-docx
+sentence-transformers
+faiss-cpu
+transformers
+
+extract-msg
