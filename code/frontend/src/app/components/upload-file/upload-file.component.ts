@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { CommonModule } from '@angular/common';  // ✅ Import CommonModule
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-upload-file',
+  standalone: true,  // ✅ Ensure it's standalone
+  imports: [CommonModule],  // ✅ Import CommonModule for *ngIf and | json
   templateUrl: './upload-file.component.html',
   styleUrls: ['./upload-file.component.css']
 })

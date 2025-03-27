@@ -4,8 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { UploadFileComponent } from './components/upload-file.component';
-import { EmailListComponent } from './components/email-list.component';
+import { EmailListComponent } from './components/email-list/email-list.component';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,11 @@ import { EmailListComponent } from './components/email-list.component';
     EmailListComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,  // ✅ Includes CommonModule by default
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ApiService], 
   bootstrap: [AppComponent]
 })
 export class AppModule {}

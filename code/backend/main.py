@@ -8,8 +8,25 @@ from pydantic import BaseModel
 from document_extractor import DocumentExtractor
 from retriever import Retriever
 from classifier import Classifier
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+
+# Allow Angular frontend to communicate with FastAPI
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],  # Angular dev server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello from FastAPI"}
+
 
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
